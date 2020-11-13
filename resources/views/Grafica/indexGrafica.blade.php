@@ -40,7 +40,7 @@
 
                     <div class="form-group">
                         <label class="col-form-label">Caratula:</label>
-                        <input type="file" class="form-control-file" id="altaCaratulaProductos">
+                        <input type="file" class="form-control-file" id="altaCaratulaProductos" name="altaCaratulaProductos">
                     </div>
 					<div class="form-group">
 						<label class="col-form-label">Nombre del producto:</label>
@@ -98,16 +98,47 @@
 
 			//Evita recargar la paguina
             e.preventDefault();
-            
+
+            var formData = new FormData();
+
             //Se obtine los valores del modal
+            var files = $('#altaCaratulaProductos')[0].files[0];
             var nombre = $("#altaNombreProductos").val();
             var descripcion = $("#altaDescripcionProductos").val();  
             var stock = $("#altaStockProductos").val();  
 
-           
-            var filename = $('input[type=file]').val().split('\\').pop();
+            formData.append('caratuladata',files);
+            formData.append('nombre',nombre);
+            formData.append('descripcion',descripcion);
+            formData.append('stock',stock);
+            
+            $.ajax({
 
-            alert(filename);
+				type:'POST',
+				url:"{{route('GuardarProductoAjax')}}",
+                data:formData,
+                contentType: false,
+                processData: false,
+				success:function(data){
+
+					//Aleta de guardado
+					swal({
+						icon: "success",
+						title: "Guardado", 
+						text: data.mensaje, 
+						type: "success"
+					})
+					.then(function(){ 
+						//Limpia el formulario
+						//limpiaFormulario();
+						location.reload();
+					});
+
+				},
+				error:function(data){
+					alert("fallo algo");
+				}
+			});
 
         });
 

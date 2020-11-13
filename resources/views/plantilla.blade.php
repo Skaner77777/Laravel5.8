@@ -32,6 +32,10 @@
     <!-- Incluye la libreria de google charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    <!-- Incluye la libreria de select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
     <title>Laravel 5.8</title>
 
 </head>
@@ -42,13 +46,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('InicioProducto')}}">Productos<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('InicioProducto')}}">CRUD Laravel</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('InicioCategoria')}}">Categorias<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('InicioCategoria')}}">CRUD JQ</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('InicioGrafica')}}">Graficas<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('InicioGrafica')}}">Graficas GCR</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{route('qrproducto')}}">QR</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{route('IndexGL')}}">API con Guzzle</a>
       </li>
     </ul>
   </div>

@@ -30,3 +30,12 @@ Route::post('/GuardarModificacionCategoria','CategoriaController@update')->name(
 
 Route::get('/InicioGrafica','GraficaController@index')->name('InicioGrafica');
 Route::get('/listaProducto','GraficaController@listaProducto')->name('listaProducto');
+Route::post('/GuardarProductoAjax','GraficaController@GuardarProductoAjax')->name('GuardarProductoAjax');
+
+Route::get('/CrearQrPng','QRController@CrearQrPng')->name('CrearQrPng');
+Route::get('/qrproducto','QRController@qrproducto')->name('qrproducto');
+Route::get('/ListaProductosQR','QRController@ListaProductosQR')->name('ListaProductosQR');
+Route::get('/DescargarQrPng','QRController@DescargarQrPng')->name('DescargarQrPng');
+
+Route::get('/IndexGL','GuzzleLaravelController@IndexGL')->name('IndexGL');
+Route::get('/showGL/{id}','GuzzleLaravelController@showGL')->name('showGL');

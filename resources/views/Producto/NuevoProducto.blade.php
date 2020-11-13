@@ -5,12 +5,17 @@
 <h1><center>Nuevo Producto</center></h1>
 <div class="container">
 
-	<form action="{{route('GuardarProducto')}}" method="POST">
+	<form action="{{route('GuardarProducto')}}" method="POST" enctype="multipart/form-data">
 		
 	  @csrf
+
+		<div class="form-group">
+			<label>Caratula:</label>
+			<input type="file" class="form-control-file" name="caratuladata">
+		</div>
 	  
 		<div class="form-group">
-			<label for="exampleInputPassword1">Nombre</label>
+			<label>Nombre</label>
 			<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
 		</div>
 	
@@ -23,7 +28,7 @@
 		@endif
 
 		<div class="form-group">
-			<label for="exampleInputPassword1">Descripcion</label>
+			<label>Descripcion</label>
 			<input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Descripcion">
 		</div>
 
@@ -32,6 +37,19 @@
 		<div class="alert alert-danger alert-dismissable">
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
 		<strong>¡La descripcion del producto es requerido :C !</strong>
+		</div>
+		@endif
+
+		<div class="form-group">
+			<label>Stock</label>
+			<input type="number" class="form-control" name="stock" id="stock">
+		</div>
+
+		<!--Validacion-->
+		@if($errors->first('stock'))
+		<div class="alert alert-danger alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<strong>¡La cantidad de stock es requerido :C !</strong>
 		</div>
 		@endif
 

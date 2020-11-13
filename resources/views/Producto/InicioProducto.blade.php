@@ -48,6 +48,7 @@
 					<th scope="col">#Clave</th>
 					<th scope="col">Nombre</th>
 					<th scope="col">Descripcio</th>
+					<th scope="col">Stock</th>
 					<th scope="col">Editar</th>
 					<th scope="col">Eliminar</th>
 				</tr>
@@ -63,6 +64,9 @@
 					</td>
 					<td>
 						{{$dato->descripcion}}
+					</td>
+					<td>
+						{{$dato->stock}}
 					</td>
 					<td>
 						<a href="{{route('EditarProducto', $dato->id)}}" class="btn btn-warning">
